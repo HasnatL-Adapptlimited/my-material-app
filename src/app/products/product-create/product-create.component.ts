@@ -13,10 +13,11 @@ export class ProductCreateComponent implements OnInit {
 
   showPriceRangeHint = false;
   @Output() added = new EventEmitter<Product>();
+
   products: Product[] = [];
   products$: Observable<Product[]> | undefined;
 
-
+  categories = ['Hardware', 'Computers', 'Clothing', 'Software'];
 
   productForm = new FormGroup({
     name: new FormControl('', {
@@ -31,8 +32,6 @@ export class ProductCreateComponent implements OnInit {
 
   get name() { return this.productForm.controls.name }
   get price() { return this.productForm.controls.price }
-
-
 
   constructor(private productsService: ProductsService) {}
 
