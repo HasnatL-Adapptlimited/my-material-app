@@ -12,6 +12,9 @@ export class ProductCreateComponent implements OnInit {
 
   showPriceRangeHint = false;
   @Output() added = new EventEmitter<Product>();
+  products: Product[] = [];
+
+
 
   productForm = new FormGroup({
     name: new FormControl('', {
@@ -32,6 +35,10 @@ export class ProductCreateComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
+    this.productsService.getProducts().subscribe(products => {
+      this.products = products;
+    });
+
     this.price.valueChanges.subscribe(price => {
       if (price) {
         this.showPriceRangeHint = price > 1 && price < 10000;

@@ -1,9 +1,14 @@
 <form [formGroup]="productForm" (ngSubmit)="createProduct()">
   <div>
     <mat-form-field>
-      <input formControlName="name" placeholder="Name" required matInput />
+      <input formControlName="name" placeholder="Name" [matAutocomplete]="productsAuto" required matInput />
       <mat-error>The name is not valid</mat-error>
     </mat-form-field>
+    <mat-autocomplete #productsAuto="matAutocomplete">
+      <mat-option *ngFor="let product of products" [value]="product.name">
+        {{product.name}}
+      </mat-option>
+    </mat-autocomplete>
   </div>
   <div>
     <mat-form-field>
