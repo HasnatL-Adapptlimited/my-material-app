@@ -73,17 +73,7 @@ label {
   color: black;
 }
 
-input.ng-touched {
-  border: 3px solid lightblue;
-}
 
-input.ng-dirty.ng-valid {
-  border: 2px solid green;
-}
-
-input.ng-dirty.ng-invalid {
-  border: 2px solid red;
-}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
