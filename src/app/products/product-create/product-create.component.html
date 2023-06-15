@@ -5,7 +5,7 @@
       <mat-error>The name is not valid</mat-error>
     </mat-form-field>
     <mat-autocomplete #productsAuto="matAutocomplete">
-      <mat-option *ngFor="let product of products" [value]="product.name">
+      <mat-option *ngFor="let product of products$ | async" [value]="product.name">
         {{product.name}}
       </mat-option>
     </mat-autocomplete>
